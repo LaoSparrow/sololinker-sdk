@@ -26,17 +26,17 @@
 *.exe
 
 # Build tree
-./build-*
-./rockdev
+/build-*
+/rockdev
 #
 # Top-level generic files
 #
 fit-dtb.blob
-./MLO*
-./SPL*
-./System.map
-./u-boot*
-./boards.cfg
+/MLO*
+/SPL*
+/System.map
+/u-boot*
+/boards.cfg
 
 #
 # git files that we don't want to ignore even it they are dot-files
@@ -47,17 +47,17 @@ fit-dtb.blob
 #
 # Generated files
 #
-./LOG
-./fit/
-./spl/
-./tpl/
-./defconfig
+/LOG
+/fit
+/spl/
+/tpl/
+/defconfig
 
 #
 # Generated include files
 #
-./include/config/
-./include/generated/
+/include/config/
+/include/generated/
 
 # stgit generated dirs
 patches-*
@@ -74,9 +74,9 @@ series
 cscope.*
 
 # tags files
-./tags
-./ctags
-./etags
+/tags
+/ctags
+/etags
 
 # gnu global files
 GPATH
