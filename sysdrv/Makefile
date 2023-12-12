@@ -447,6 +447,15 @@ rootfs_prepare: prepare
 
 ifeq ($(RK_ROOTFS_TYPE), ubuntu)
 	@echo "RootFS type is Ubuntu"
+
+# merge rootfs_ubuntu.tar.gz divided parts if not exist
+	@test -f $(SYSDRV_DIR)/tools/board/rootfs_ubuntu.tar.gz  || (\
+		pushd  $(SYSDRV_DIR)/tools/board/ubuntu/ ;\
+		./split_and_check_md5.sh merge rootfs_ubuntu.tar.gz ;\
+		mv ./rootfs_ubuntu.tar.gz ../ ;\
+		popd ;\
+	);
+
 	@tar -zxpf $(SYSDRV_DIR)/tools/board/rootfs_ubuntu.tar.gz -C $(SYSDRV_DIR_OUT_ROOTFS)
 	@echo -e "$(C_GREEN) ==sysdrv== uncompress Ubuntu rootfs finished!   $(C_NORMAL)"
 else
